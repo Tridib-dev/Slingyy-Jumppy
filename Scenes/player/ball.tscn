@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://b8ch8xf2dm7u4"]
+
+[ext_resource type="Texture2D" uid="uid://cvo747p2cedre" path="res://assets/test_demo/bobo_idle_360.png" id="1_qume1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5eb1"]
+atlas = ExtResource("1_qume1")
+region = Rect2(30, 0, 30, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rf7pf"]
+atlas = ExtResource("1_qume1")
+region = Rect2(0, 0, 30, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pie6f"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_h5eb1")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_rf7pf")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pie6f"]
+radius = 6.0
+
+[node name="Ball" type="RigidBody2D" unique_id=707049654]
+continuous_cd = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=740036140]
+position = Vector2(-1, -11)
+sprite_frames = SubResource("SpriteFrames_pie6f")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.60082924
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=460315747]
+position = Vector2(-2, 0)
+shape = SubResource("CircleShape2D_pie6f")

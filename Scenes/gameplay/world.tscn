@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://4314wspinpjb"]
+
+[ext_resource type="PackedScene" uid="uid://b8ch8xf2dm7u4" path="res://Scenes/player/ball.tscn" id="1_02hvy"]
+[ext_resource type="PackedScene" uid="uid://p1gp1wu2upet" path="res://Scenes/mechanics/slingshot/slingshot.tscn" id="2_jm2sk"]
+
+[node name="main" type="Node2D" unique_id=1315214956]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=545242067]
+zoom = Vector2(4, 4)
+
+[node name="Ball" parent="." unique_id=707049654 instance=ExtResource("1_02hvy")]
+
+[node name="Slingshot" parent="." unique_id=866419124 instance=ExtResource("2_jm2sk")]
+ball_path = NodePath("../Ball")
