@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://c0epqnqjwy3wa" path="res://scripts/world.gd" id="1_gq3ae"]
 [ext_resource type="Texture2D" uid="uid://bobo4srqwpqmp" path="res://assets/1.png" id="2_bqxwr"]
 [ext_resource type="PackedScene" uid="uid://p1gp1wu2upet" path="res://Scenes/mechanics/slingshot/slingshot.tscn" id="2_jm2sk"]
+[ext_resource type="AudioStream" uid="uid://bv7sp53vpmmf" path="res://assets/sounds/game background.mp3" id="6_2i7uf"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2c5eu"]
 bounce = 0.5
@@ -41,3 +42,7 @@ color = Color(0.4587643, 0.012211397, 7.219613e-08, 1)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=545242067]
 script = ExtResource("1_2c5eu")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=239121229]
+stream = ExtResource("6_2i7uf")
+autoplay = true
