@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://d3hkxapl5v2ul" path="res://scripts/camera/camera_controller.gd.gd" id="1_2c5eu"]
 [ext_resource type="PackedScene" uid="uid://b8ch8xf2dm7u4" path="res://Scenes/player/ball.tscn" id="1_02hvy"]
 [ext_resource type="Script" uid="uid://c0epqnqjwy3wa" path="res://scripts/world.gd" id="1_gq3ae"]
+[ext_resource type="Texture2D" uid="uid://bobo4srqwpqmp" path="res://assets/1.png" id="2_bqxwr"]
 [ext_resource type="PackedScene" uid="uid://p1gp1wu2upet" path="res://Scenes/mechanics/slingshot/slingshot.tscn" id="2_jm2sk"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2c5eu"]
@@ -14,6 +15,7 @@ size = Vector2(1280, 40)
 [node name="main" type="Node2D" unique_id=1315214956 node_paths=PackedStringArray("ball")]
 script = ExtResource("1_gq3ae")
 ball = NodePath("Ball")
+backgrounds = Array[Texture2D]([ExtResource("2_bqxwr")])
 
 [node name="Ball" parent="." unique_id=707049654 instance=ExtResource("1_02hvy")]
 position = Vector2(200, 560)
