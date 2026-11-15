@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://l4m1xdl2cruq"]
+
+[ext_resource type="Texture2D" uid="uid://bvydccusjeha8" path="res://assets/ui/image_360.png" id="1_mkuvw"]
+
+[node name="MainMenu" type="Node2D" unique_id=1578265735]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=935461610]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_mkuvw")
+expand_mode = 1
+
+[node name="StartButton" type="Button" parent="." unique_id=459065497]
+offset_left = 440.0
+offset_top = 475.0
+offset_right = 840.0
+offset_bottom = 585.0
+focus_mode = 0
+flat = true

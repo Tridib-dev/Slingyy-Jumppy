@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://b8ch8xf2dm7u4"]
 
+[ext_resource type="Script" uid="uid://clp2er337hxqb" path="res://scripts/player/ball.gd" id="1_h5eb1"]
 [ext_resource type="Texture2D" uid="uid://cvo747p2cedre" path="res://assets/test_demo/bobo_idle_360.png" id="1_qume1"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rf7pf"]
+friction = 0.3
+bounce = 0.6
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h5eb1"]
 atlas = ExtResource("1_qume1")
@@ -25,18 +30,23 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pie6f"]
-radius = 6.0
+radius = 20.0
 
-[node name="Ball" type="RigidBody2D" unique_id=707049654]
+[node name="Ball" type="RigidBody2D" unique_id=707049654 groups=["ball"]]
+physics_material_override = SubResource("PhysicsMaterial_rf7pf")
 continuous_cd = 2
+script = ExtResource("1_h5eb1")
+ball_radius = 40.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=740036140]
-position = Vector2(-1, -11)
+position = Vector2(1.9999955, -41.000004)
+scale = Vector2(3.466667, 3.8750002)
 sprite_frames = SubResource("SpriteFrames_pie6f")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.60082924
+frame_progress = 0.34266987
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=460315747]
-position = Vector2(-2, 0)
 shape = SubResource("CircleShape2D_pie6f")
+
+[node name="GroundRay" type="RayCast2D" parent="." unique_id=242040606]

@@ -1,14 +1,41 @@
 [gd_scene format=3 uid="uid://4314wspinpjb"]
 
+[ext_resource type="Script" uid="uid://d3hkxapl5v2ul" path="res://scripts/camera/camera_controller.gd.gd" id="1_2c5eu"]
 [ext_resource type="PackedScene" uid="uid://b8ch8xf2dm7u4" path="res://Scenes/player/ball.tscn" id="1_02hvy"]
+[ext_resource type="Script" uid="uid://c0epqnqjwy3wa" path="res://scripts/world.gd" id="1_gq3ae"]
 [ext_resource type="PackedScene" uid="uid://p1gp1wu2upet" path="res://Scenes/mechanics/slingshot/slingshot.tscn" id="2_jm2sk"]
 
-[node name="main" type="Node2D" unique_id=1315214956]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2c5eu"]
+bounce = 0.5
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=545242067]
-zoom = Vector2(4, 4)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pie6f"]
+size = Vector2(1280, 40)
+
+[node name="main" type="Node2D" unique_id=1315214956 node_paths=PackedStringArray("ball")]
+script = ExtResource("1_gq3ae")
+ball = NodePath("Ball")
 
 [node name="Ball" parent="." unique_id=707049654 instance=ExtResource("1_02hvy")]
+position = Vector2(200, 560)
+punish_outside_window = true
 
 [node name="Slingshot" parent="." unique_id=866419124 instance=ExtResource("2_jm2sk")]
+position = Vector2(200, 560)
 ball_path = NodePath("../Ball")
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=441188440]
+position = Vector2(640, 700)
+physics_material_override = SubResource("PhysicsMaterial_2c5eu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=662841394]
+shape = SubResource("RectangleShape2D_pie6f")
+
+[node name="ColorRect" type="ColorRect" parent="Ground" unique_id=2018369096]
+offset_left = -640.0
+offset_top = -20.0
+offset_right = 640.0
+offset_bottom = 20.0
+color = Color(0.4587643, 0.012211397, 7.219613e-08, 1)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=545242067]
+script = ExtResource("1_2c5eu")
